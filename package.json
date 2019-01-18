@@ -1,14 +1,11 @@
 {
-  "name": "vue-project-template",
+  "name": "simple-webpack-proj",
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "dev": "cross-env NODE_ENV=dev webpack; node app.js",
-    "local": "cross-env NODE_ENV=local webpack-dev-server --hot --inline",
-    "start": "node app.js"
+    "build": "webpack"
   },
   "keywords": [
     ""
@@ -38,17 +35,8 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^4.7.1",
-    "express": "^4.16.4",
-    "node-sass": "^4.9.3",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.0",
-    "vue": "^2.5.21",
-    "vue-loader": "^15.4.1",
-    "vue-style-loader": "^4.1.2",
-    "vue-template-compiler": "^2.5.17",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8",
-    "yarn": "^1.9.4"
   }
 }
