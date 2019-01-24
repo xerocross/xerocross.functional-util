@@ -13,8 +13,6 @@ test("join left",function() {
     expect(newArr.length == 9 && newArr[0] == -1).toBe(true);
 });
 
-
-
 test("swap array",function() {
     let arr = [0,1,2,3,4,5,6,7];
     let newArr = FunctionalUtility.swap(arr, 2, 4);

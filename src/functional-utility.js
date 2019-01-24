@@ -1,9 +1,7 @@
 import WeAssert from "we-assert";
 
 let we = WeAssert.build();
-console.log(we);
 var array = {};
-
 
 array.clone = function(arr, i) {
     if (i == undefined) {
@@ -17,8 +15,6 @@ array.clone = function(arr, i) {
         return newArr;
     }
 }
-
-
 
 var arrayExtendOne = function(arr, newVal) {
 
@@ -36,7 +32,7 @@ var joinArrayRight = function(arr, newValue, i) {
     return [...arr, newValue];
 }
 
-we.assume("A", "joinArrayLeft");
+we.assume("B", "joinArrayLeft");
 var joinArrayLeft = function(arr, newValue) {
     return [newValue, ...arr];
 }
@@ -47,7 +43,7 @@ var subarrayMax = function(arr, max) {
     } else if (max == 0) {
         return [];
     }
-    return joinArrayRight(subarrayMax(arr, max - 1), arr[max-1] );
+    return joinArrayRight(subarrayMax(arr, max - 1), arr[max - 1] );
 }
 var subarrayMin = function(arr, min) {
     if (min == arr.length - 1) {
@@ -67,7 +63,7 @@ var joinTwoArrays = function(arr1, arr2) {
 }
 
 var swap = function (arr, i, j) {
-    return joinTwoArrays(joinTwoArrays(joinTwoArrays(subarray(arr,0,i),[arr[j]]), joinTwoArrays(subarray(arr,i+1, j), [arr[i]])),subarray(arr, j+1, arr.length));
+    return joinTwoArrays(joinTwoArrays(joinTwoArrays(subarray(arr,0,i),[arr[j]]), joinTwoArrays(subarray(arr,i + 1, j), [arr[i]])),subarray(arr, j + 1, arr.length));
 }
 var bubblePass = function(arr, i) {
     if (!i) {
@@ -77,7 +73,7 @@ var bubblePass = function(arr, i) {
         return arr;
     } else {
         
-        return bubblePass(arr[i] <= arr[i+1] ? arr : swap(arr, i, i + 1), i + 1);
+        return bubblePass(arr[i] <= arr[i + 1] ? arr : swap(arr, i, i + 1), i + 1);
     }
 }
 
