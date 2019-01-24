@@ -9,6 +9,9 @@ module.exports = [{
         path : path.resolve(__dirname, './dist'),
         publicPath : '/dist',
         filename : '[name].js',
+        library : "SimpleWebpackProj",
+        libraryTarget : "umd",
+        umdNamedDefine : true
     },
     externals : {
     },
