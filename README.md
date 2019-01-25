@@ -2,6 +2,10 @@
 
 This is a collection of JavaScript utility functions written in a functional programming style.  I just started this.  It's still under construction.  But what _is_ here is thoroughly tested.  The code even contains mathematical proofs of correctness and internal verification that will throw errors at runtime if there is an unexpected problem.
 
+It stands to reason that these functions _might_ be noticeably slower than functions written in the traditional JavaScript imperative style.  By design, functional programming requires a lot of copying data into a new place, and since people don't often write JavaScript this way, existing JavaScript interpreters probably do not optimize these operations.
+
+The (possible) lack of speed is a tradeoff for the benefit of functions that can be validated by mathematical proof.
+
 ## validation and testing
 
 This library has a rather extensive testing suite written in Jest notation.  It also uses WeAssert for internal validation of data.  For example, this library defines a number.isInteger function and many of the other functions use that function internally to verify input data.  These functions will throw an error at runtime if the input type is invalid. 
