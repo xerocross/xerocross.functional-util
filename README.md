@@ -4,7 +4,7 @@ This is a collection of JavaScript utility functions written in a functional pro
 
 ## functions
 
-This is a list of the available functions and their signatures and return types.  To use them, import the module. ``const FU = require("xerocross.functional-util");``.  Then to access a function, say "array.joinRight", you call ``FU.array.joinRight``.
+This is a list of the available functions and their signatures and return types.  To use them, import the module. ``const futil = require("xerocross.functional-util");``.  Then to access a function, say "array.joinRight", you call ``futil.array.joinRight``.
 
 None of these functions mutate the input data.
 
