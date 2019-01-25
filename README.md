@@ -6,6 +6,8 @@ It stands to reason that these functions _might_ be noticeably slower than funct
 
 The (possible) lack of speed is a tradeoff for the benefit of functions that can be validated by mathematical proof.
 
+It's worth noting that the author of this library Adam Cross is a formally trained PhD mathematician.
+
 ## validation and testing
 
 This library has a rather extensive testing suite written in Jest notation.  It also uses WeAssert for internal validation of data.  For example, this library defines a number.isInteger function and many of the other functions use that function internally to verify input data.  These functions will throw an error at runtime if the input type is invalid. 
