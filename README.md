@@ -34,6 +34,6 @@ None of these functions mutate the input data.
 
 ```array.swap : function (arr:any[], i:number, j:number) ```
 
-```bubbleUp : function(arr:any[], bubbleIndex:number, compareFunction:ComparisonFunction) => any[] ```
+```array.bubbleUp : function(arr:any[], bubbleIndex:number, compareFunction:ComparisonFunction) => any[] ```
 
-```bubbleSort : function(arr:any[], compareFunction:ComparisonFunction) => any[] ```
+```array.bubbleSort : function(arr:any[], compareFunction:ComparisonFunction) => any[] ```
