@@ -1,4 +1,5 @@
-const FU = require("./functional-utility.js");
+import FU from "./functional-utility";
+
 type ComparisonFunction = (i: number, j:number) => number;
 const isSorted = function(arr:any[], compareFunction:ComparisonFunction ){
     for (let i = 0; i < arr.length - 1; i++) {
@@ -79,8 +80,12 @@ describe('test array suite', function () {
     test("bubbleSort", function() {
         let arr = [3,6,98,2,6,77,3,2,5];
         let res = FU.array.bubbleSort(arr, (x:number,y:number) => x - y);
-        console.log(res);
         expect(isSorted(res,  (x:number,y:number) => x - y)).toBe(true);
+    });
+
+    test("isSorted positive", function() {
+        let arr = [0,5, 8, 9, 10, 77];
+        expect(FU.array.isSorted(arr, arr.length, (x:number,y:number) => x - y)).toBe(true);
     });
 
     test("clone", function() {
@@ -97,6 +102,8 @@ describe('test array suite', function () {
         expect(test()).toBe(true);
     });
 });
+
+
 
 describe('test number.isWholeNumber', function () {
     test("number.isWholeNumber positive", function() {

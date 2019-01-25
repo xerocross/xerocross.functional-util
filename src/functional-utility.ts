@@ -1,9 +1,10 @@
 import WeAssert from "we-assert";
+
 let we = WeAssert.build();
 we.setHandler(function(message:string){
     throw new Error("the following assertion failed: \"" + message + "\"");
 });
-type ComparisonFunction = (i: number, j:number) => number;
+type ComparisonFunction = (i:number, j:number) => number;
 type IsEqualFunction = (left:any, right: any) => boolean;
 
 let bubbleSortRecursion = function(arr:any[], partitionIndex:number, compareFunction:ComparisonFunction ) :any[] {
@@ -54,9 +55,23 @@ var array = {
             return true;
         }
     },
-    // isSorted : function(arr:any[], upTo:number, compareFunction:ComparisonFunction ) :boolean {
-
-    // },
+    isSorted : function(arr:any[], upTo:number, compareFunction:ComparisonFunction ) :boolean {
+        we.assert.that(number.isInteger(upTo), "upTo is an integer");
+        
+        // assume arr is sorted up to index upTo - 1;
+        if (upTo <= 0) {
+            // requires no test
+            return true;
+        } else {
+            // assume arr is sorted up to index upTo - 1;
+            let innerTest = array.isSorted(arr, upTo - 1, compareFunction);
+            if (upTo < arr.length) {
+                return innerTest && compareFunction(arr[upTo - 1], arr[upTo]) <= 0
+            } else {
+                return innerTest;
+            }
+        }
+    },
     joinRight : function(arr:any[], newValue:any) :any[]{
         return [...arr, newValue];
     },
@@ -162,7 +177,7 @@ var array = {
     }
 };
 
-module.exports = {
+export default {
     array,
     number
 };
