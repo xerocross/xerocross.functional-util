@@ -1,5 +1,13 @@
 "use strict";
 const FU = require("./functional-utility.js");
+const isSorted = function (arr, compareFunction) {
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (compareFunction(arr[i], arr[i + 1]) > 0) {
+            return false;
+        }
+    }
+    return true;
+};
 describe('test array suite', function () {
     test("join right", function () {
         let arr = [0, 1, 2, 3, 4, 5, 6, 7];
@@ -58,6 +66,12 @@ describe('test array suite', function () {
         let arr = [0, 1, 2, 72, 3, 4, 5, 6, 7];
         let res = FU.array.bubbleUp(arr, arr.length - 1, (x, y) => x - y);
         expect(res[arr.length - 1]).toBe(72);
+    });
+    test("bubbleSort", function () {
+        let arr = [3, 6, 98, 2, 6, 77, 3, 2, 5];
+        let res = FU.array.bubbleSort(arr, (x, y) => x - y);
+        console.log(res);
+        expect(isSorted(res, (x, y) => x - y)).toBe(true);
     });
     test("clone", function () {
         let arr = [0, 1, 2, 72, 3, 4, 5, 6, 7];

@@ -8,6 +8,24 @@ let we = we_assert_1.default.build();
 we.setHandler(function (message) {
     throw new Error("the following assertion failed: \"" + message + "\"");
 });
+let bubbleSortRecursion = function (arr, partitionIndex, compareFunction) {
+    we.assert.that(number.isInteger(partitionIndex), "partitionIndex is an integer");
+    // this function should return an array that is sorted
+    // for all indices >= partitionIndex
+    // compute bubbleSortRecursion on partitionIndex + 1
+    // so we have 
+    if (partitionIndex >= arr.length) {
+        // the conditions require no change
+        return array.clone(arr);
+    }
+    else {
+        let innerArray = bubbleSortRecursion(arr, partitionIndex + 1, compareFunction);
+        // now innerArray is sorted for indices >= partitionIndex + 1;
+        // to put the correct value in place at index partitionIndex
+        // we just need to bubbleUp at that index
+        return array.bubbleUp(innerArray, partitionIndex, compareFunction);
+    }
+};
 var number = {
     isWholeNumber: function (num) {
         if (num == 0) {
@@ -41,6 +59,8 @@ var array = {
             return true;
         }
     },
+    // isSorted : function(arr:any[], upTo:number, compareFunction:ComparisonFunction ) :boolean {
+    // },
     joinRight: function (arr, newValue) {
         return [...arr, newValue];
     },
@@ -144,6 +164,9 @@ var array = {
                 return this.swap(lesserBubbledArray, bubbleIndex - 1, bubbleIndex);
             }
         }
+    },
+    bubbleSort: function (arr, compareFunction) {
+        return bubbleSortRecursion(arr, 0, compareFunction);
     }
 };
 module.exports = {
