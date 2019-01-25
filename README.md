@@ -8,6 +8,10 @@ This is a list of the available functions and their signatures and return types.
 
 None of these functions mutate the input data.
 
+We have defined the following type for use in the function list:
+
+```type ComparisonFunction = (i: number, j:number) => number;```
+
 ### function list
 
 ```number.isWholeNumber : function(num:number) => boolean```
