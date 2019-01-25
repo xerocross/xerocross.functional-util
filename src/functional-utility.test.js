@@ -20,17 +20,17 @@ describe('test array suite', function () {
         test("replace negative, index too large", function () {
             let arr = [0, 1, 2, 3, 4, 5, 6, 7];
             let newArr = FU.array.replace(arr, 27, 0);
-            expect(FU.array.isArraysEqual(arr, newArr)).toBe(true);
+            expect(FU.array.isArraysEqual(arr, newArr, (x, y) => x == y)).toBe(true);
         });
         test("replace negative, index negative", function () {
             let arr = [0, 1, 2, 3, 4, 5, 6, 7];
             let newArr = FU.array.replace(arr, -1, 0);
-            expect(FU.array.isArraysEqual(arr, newArr)).toBe(true);
+            expect(FU.array.isArraysEqual(arr, newArr, (x, y) => x == y)).toBe(true);
         });
         test("replace throws, index not an integer", function () {
             let arr = [0, 1, 2, 3, 4, 5, 6, 7];
             expect(function () {
-                let newArr = FU.array.replace(arr, 2.5, 0);
+                FU.array.replace(arr, 2.5, 0);
             }).toThrow();
         });
     });
@@ -44,19 +44,19 @@ describe('test array suite', function () {
         test("swap array invalid i throws", function () {
             let arr = [0, 1, 2, 3, 4, 5, 6, 7];
             expect(function () {
-                let newArr = FU.array.swap(arr, -1, 4);
+                FU.array.swap(arr, -1, 4);
             }).toThrow();
         });
         test("swap array invalid j throws", function () {
             let arr = [0, 1, 2, 3, 4, 5, 6, 7];
             expect(function () {
-                let newArr = FU.array.swap(arr, 2, 87);
+                FU.array.swap(arr, 2, 87);
             }).toThrow();
         });
     });
-    test("bubble pass", function () {
+    test("bubbleup", function () {
         let arr = [0, 1, 2, 72, 3, 4, 5, 6, 7];
-        let res = FU.array.bubblePass(arr);
+        let res = FU.array.bubbleUp(arr, arr.length - 1, (x, y) => x - y);
         expect(res[arr.length - 1]).toBe(72);
     });
     test("clone", function () {

@@ -28,13 +28,13 @@ var array = {
     clone: function (arr) {
         return this.subarrayMax(arr, arr.length);
     },
-    isArraysEqual: function (arr1, arr2) {
+    isArraysEqual: function (arr1, arr2, isEqual) {
         if (arr1.length != arr2.length) {
             return false;
         }
         else {
             for (let i = 0; i < arr1.length; i++) {
-                if (arr1[i] != arr2[i]) {
+                if (!isEqual(arr1[i], arr2[i])) {
                     return false;
                 }
             }
@@ -48,6 +48,7 @@ var array = {
         return [newValue, ...arr];
     },
     subarrayMax: function (arr, max) {
+        we.assert.that(number.isInteger(max), "max is an integer");
         if (max <= 0) {
             // if max is 0, then the subarray includes nothing,
             // so we return the empty array
@@ -96,6 +97,7 @@ var array = {
         return [...arr1, ...arr2];
     },
     subarray: function (arr, min, max) {
+        // indices are validated in subarrayMin and subarrayMax
         return this.subarrayMin(this.subarrayMax(arr, max), min);
     },
     replace: function (arr, index, value) {
@@ -114,13 +116,33 @@ var array = {
         we.assert.that(0 <= j && j < arr.length, "0 <= j && j < arr.length");
         return this.replace(this.replace(arr, i, arr[j]), j, arr[i]);
     },
-    bubblePass: function (arr, i) {
-        i = i | 0;
-        if (i >= arr.length - 1) {
-            return arr;
+    bubbleUp: function (arr, bubbleIndex, compareFunction) {
+        we.assert.that(number.isInteger(bubbleIndex), "bubbleIndex is an integer");
+        we.assert.that(bubbleIndex < arr.length && bubbleIndex >= 0, "bubbleIndex < arr.length && bubbleIndex >= 0");
+        if (bubbleIndex == 0) {
+            // the greatest number between index 0 and index 0 (inclusive)
+            // is already in place, so we return a clone of the array
+            return this.clone(arr);
         }
         else {
-            return this.bubblePass(arr[i] <= arr[i + 1] ? arr : this.swap(arr, i, i + 1), i + 1);
+            // assume we have bubbled up the array so that 
+            // the value at index bubbleIndex - 1 is the max
+            // over all indices between 0 and bubbleIndex - 1, inclusive
+            let lesserBubbledArray = this.bubbleUp(arr, bubbleIndex - 1, compareFunction);
+            let comparison = compareFunction(lesserBubbledArray[bubbleIndex - 1], lesserBubbledArray[bubbleIndex]);
+            if (comparison <= 0) {
+                // then lesserBubbledArray is already bubbled to index bubbleIndex
+                return lesserBubbledArray;
+            }
+            else {
+                // we swap them.  Since lesserBubbledArray[bubbleIndex - 1] is 
+                // greater than everything from 0 to bubbleIndex - 1
+                // and since it is also greater than lesserBubbledArray[bubbleIndex]
+                // if we swap bubbleIndex and bubbleIndex - 1 the result will 
+                // have the largest value among indices [0, bubbleIndex] at index 
+                // bubbleIndex as desired
+                return this.swap(lesserBubbledArray, bubbleIndex - 1, bubbleIndex);
+            }
         }
     }
 };
