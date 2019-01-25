@@ -1,20 +1,19 @@
 {
-  "name": "simple-webpack-proj",
+  "name": "xerocross.functional-util",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/functional-utility.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack"
   },
   "keywords": [
-    ""
   ],
   "author": "Adam Cross",
   "license": "0BSD",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": " https://github.com/xerocross/xerocross.functional-util.git"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
@@ -36,7 +35,7 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^4.7.1",
-    "we-assert": "^2.0.1",
+    "we-assert": "^2.0.2",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8"
