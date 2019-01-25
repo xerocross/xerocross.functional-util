@@ -90,6 +90,11 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@types/jest@^23.3.13":
+  version "23.3.13"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.13.tgz#c81484b6f4ca007bb09887ed15ecb3286d58f928"
+  integrity sha512-ePl4l+7dLLmCucIwgQHAgjiepY++qcI6nb8eAwGNkB6OxmTe3Z9rQU3rSpomqu42PCCnlThZbOoxsf+qylJsLA==
+
 "@types/node@^10.12.18":
   version "10.12.18"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.18.tgz#1d3ca764718915584fcd9f6344621b7672665c67"
@@ -7095,10 +7100,10 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-we-assert@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/we-assert/-/we-assert-2.0.2.tgz#ccc365684452da84a4a3c8a6c02acad5ca125298"
-  integrity sha512-LHCwb19JJF1JRMRh37CSrXcnuGe7z6Uspfg1oA24pW6tgezLJ5KaN18Ifl3dlAvISDDkSTljmBxpPZ28MAW6Iw==
+we-assert@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/we-assert/-/we-assert-2.0.4.tgz#a93d45cc694994b33b48d333d9a50e0611edc341"
+  integrity sha512-KifJKpEwIgb2gsUJJwHSmqrInOEhLS5Uovwud4qsYKUIRYVQcDzjL5jbE5Bif072JHTQvTm51sLWtDU5sMe47A==
   dependencies:
     babel-core "^6.26.3"
     babel-eslint "^10.0.1"

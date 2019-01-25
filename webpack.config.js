@@ -6,6 +6,7 @@ module.exports = [{
         'functional-utility' : './src/functional-utility.js'
     },
     output : {
+        globalObject : "this",
         path : path.resolve(__dirname, './dist'),
         publicPath : '/dist',
         filename : '[name].js',
