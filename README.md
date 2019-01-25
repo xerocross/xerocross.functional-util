@@ -2,6 +2,10 @@
 
 This is a collection of JavaScript utility functions written in a functional programming style.  I just started this.  It's still under construction.
 
+## validation and testing
+
+This library has a rather extensive testing suite written in Jest notation.  It also uses WeAssert for internal validation of data.  For example, this library defines a number.isInteger function and many of the other functions use that function internally to verify input data.  These functions will throw an error at runtime if the input type is invalid. 
+
 ## functions
 
 This is a list of the available functions and their signatures and return types.  To use them, import the module. ``const futil = require("xerocross.functional-util");``.  Then to access a function, say "array.joinRight", you call ``futil.array.joinRight``.
@@ -14,30 +18,30 @@ We have defined the following type for use in the function list:
 
 ### function list
 
-```number.isWholeNumber : function(num:number) => boolean```
+Here is the declaration of the exported types and methods
 
-```number.isInteger : function(num:number) => boolean```
-
-```array.clone : function(arr:any[]) => any[] ```
-
-```array.isArraysEqual : function(arr1:any[], arr2:any[], isEqual:IsEqualFunction) => boolean```
-
-```array.joinRight : function(arr:any[], newValue:any) => any[]```
-
-```array.joinLeft : function(arr:any[], newValue:any) => any[] ```
-
-```array.subarrayMax : function(arr:any[], max:number) => any[] ```
-
-```array.subarrayMin : function(arr:any[], min:number) => any[] ```
-
-```array.joinTwoArrays : function(arr1:any[], arr2:any[]) => any[]```
-
-```array.subarray : function (arr:any[], min:number, max:number) => any[] ```
-
-```array.replace : function(arr:any[], index:number, value:any) => any[]```
-
-```array.swap : function (arr:any[], i:number, j:number) ```
-
-```array.bubbleUp : function(arr:any[], bubbleIndex:number, compareFunction:ComparisonFunction) => any[] ```
-
-```array.bubbleSort : function(arr:any[], compareFunction:ComparisonFunction) => any[] ```
+```
+type ComparisonFunction = (i: number, j: number) => number;
+type IsEqualFunction = (left: any, right: any) => boolean;
+default {
+    array: {
+        clone: (arr: any[]) => any[];
+        isArraysEqual: (arr1: any[], arr2: any[], isEqual: IsEqualFunction) => boolean;
+        isSorted: (arr: any[], upTo: number, compareFunction: ComparisonFunction) => boolean;
+        joinRight: (arr: any[], newValue: any) => any[];
+        joinLeft: (arr: any[], newValue: any) => any[];
+        subarrayMax: (arr: any[], max: number) => any[];
+        subarrayMin: (arr: any[], min: number) => any[];
+        joinTwoArrays: (arr1: any[], arr2: any[]) => any[];
+        subarray: (arr: any[], min: number, max: number) => any[];
+        replace: (arr: any[], index: number, value: any) => any[];
+        swap: (arr: any[], i: number, j: number) => any[];
+        bubbleUp: (arr: any[], bubbleIndex: number, compareFunction: ComparisonFunction) => any[];
+        bubbleSort: (arr: any[], compareFunction: ComparisonFunction) => any[];
+    };
+    number: {
+        isWholeNumber: (num: number) => boolean;
+        isInteger: (num: number) => boolean;
+    };
+};
+```
