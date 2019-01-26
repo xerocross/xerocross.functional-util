@@ -8,6 +8,10 @@ The (possible) lack of speed is a tradeoff for the benefit of functions that can
 
 It's worth noting that the author of this library Adam Cross is a formally trained PhD mathematician.
 
+## author
+
+This is a one-man project so far.  I'm the author, Adam Cross, AKA Xerocross.  I'm an experienced software engineer and a PhD mathematician.
+
 ## updates
 
 I don't maintain any project-specific  update blog, but I do maintain a blog about all of my programming activities at https://adamcross.blog/.  If you are interested in the dev process or any updates about this project, check the blog.
