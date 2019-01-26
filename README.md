@@ -1,3 +1,6 @@
+This repo is deprecated in favor of https://github.com/xerocross/fu.
+
+
 # xerocross.functional-util
 
 This is a collection of JavaScript utility functions written in a functional programming style.  I just started this.  It's still under construction.  But what _is_ here is thoroughly tested.  The code even contains mathematical proofs of correctness and internal verification that will throw errors at runtime if there is an unexpected problem.
